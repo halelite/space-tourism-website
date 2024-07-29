@@ -9,13 +9,13 @@ function CrewLinks() {
                <ActiveLink href='/crew/douglas_hurley' />
             </li>
             <li className={crewStyles.li}>
-                <ActiveLink href='/crew/mark_shuttleworth'  />
+                <ActiveLink href='/crew/mark_shuttleworth' />
             </li>
             <li className={crewStyles.li}>
-                <ActiveLink href='/crew/victor_glover'  />
+                <ActiveLink href='/crew/victor_glover' />
             </li>
             <li className={crewStyles.last_li}>
-                <ActiveLink href='/crew/anousheh_ansari'  />
+                <ActiveLink href='/crew/anousheh_ansari' />
             </li>
         </ul>
         <style jsx global>{`

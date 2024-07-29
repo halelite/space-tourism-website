@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CrewLinks from "../../../components/crewLinks";
 import Nav from "../../../components/Nav";
 import {Bellefair} from 'next/font/google';
 import {Barlow} from 'next/font/google';
+import CrewLinks from "../../../components/CrewLinks";
 
 const bellefair = Bellefair({
   subsets: ['latin'],
@@ -17,9 +17,9 @@ const barlow = Barlow({
 });
 
 function Crew({data}) {
-
-    const [isAnoushe, setAnoushe] = useState(data.name == 'Anousheh Ansari');
-    console.log(isAnoushe);
+    
+    // const [isAnoushe, setAnoushe] = useState(data.name == 'Anousheh Ansari');
+    const [isAnoushe, setAnoushe] = useState();
 
     return (
         <div className="crew-container">
@@ -31,18 +31,21 @@ function Crew({data}) {
                         <div className="explanation">
                             <div className="info">
                                 <div className="name">
-                                    <h5 className={bellefair.className}>{data.role}</h5>
-                                    <h1 className={bellefair.className}>{data.name}</h1>
+                                    {/* <h5 className={bellefair.className}>{data.role}</h5> */}
+                                    <h5 className={bellefair.className}>commander</h5>
+                                    {/* <h1 className={bellefair.className}>{data.name}</h1> */}
+                                    <h1 className={bellefair.className}>douglas</h1>
                                 </div>
                                 <div className="description">
-                                    <p className={barlow.className}>{data.bio}</p>
+                                    {/* <p className={barlow.className}>{data.bio}</p> */}
+                                    <p className={barlow.className}>ehem</p>
                                 </div>
                             </div>
                             <CrewLinks /> 
                         </div>
                         <div className="image">
-                            <img className={isAnoushe ? 'anoushe' : ''} src={data.images.png} alt="crew" 
-                            height={340}/>
+                            {/* <img className={isAnoushe ? 'anoushe' : ''} src={data.images.png} alt="crew" 
+                            height={340}/> */}
                         </div>
                     </div>
                 </div>
@@ -51,47 +54,59 @@ function Crew({data}) {
     )
 }
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/assets/data.json`);
-    const data = await res.json();
+//     // paths: [
+//     //         {params: {slug: 'douglas_hurley'}},
+//     //         {params: {slug: 'mark-shuttleworth'}},
+//     //         {params: {slug: 'victor-glover'}},
+//     //         {params: {slug: 'anousheh-ansari'}}
+//     //     ],
 
-    const paths = data.crew.map(item => {
-        let words = item.name.split(" ");
-        for(let i = 0; i < words.length; i++) {
-            words[i] = words[i][0].toLowerCase() + words[i].slice(1);
-        }
-        words = words.join("_");
+//     const res = await fetch(`http://localhost:3000/assets/data.json`);
+//     const data = await res.json();
 
-        return {params: {slug: words}}
-        
-    });
+//     const paths = data.crew.map(item => {
+//         let words = item.name.split(" ");
+//         for(let i = 0; i < words.length; i++) {
+//             words[i] = words[i][0].toLowerCase() + words[i].slice(1);
+//         }
+//         words = words.join("_");
 
-    return {
-        paths,
-        fallback: false
-    }
-}
+//         return ({params: {slug: words}})   
+//     });
 
-export async function getStaticProps({params}) {
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }
 
-    let name = params.slug.split("_");
-    for(let i = 0; i < name.length; i++) {
-        name[i] = name[i][0].toUpperCase() + name[i].slice(1);
-    }
-    name = name.join(" ");
+// export async function getStaticProps({params}) {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/assets/data.json`);
-    const data = await res.json();
+//     const res = await fetch(`http://localhost:3000/assets/data.json`);
+//     const data = await res.json();
 
-    const items = data.crew.find(item => item.name == name);
+//     let name = params.slug.split("_");
+//     for(let i = 0; i < name.length; i++) {
+//         name[i] = name[i][0].toUpperCase() + name[i].slice(1);
+//     }
+//     name = name.join(" ");
 
-    return {
-        props: {
-            data: items
-        }
-    }
+//     const items = data.crew.find(item => item.name == name);
 
-}
+//     if(!data) {
+//         return {
+//             notFound: true
+//         }
+//     }
+
+//     return {
+//         props: {
+//             data: items
+//         }
+//     }
+
+// }
 
 export default Crew
