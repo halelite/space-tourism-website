@@ -24,12 +24,26 @@ Users should be able to:
 
 ### Screenshot
 
-![Design preview for space tourism website](./screenshot.jpg)
+#### Homepage
+
+![Homepage Design preview for space tourism website](./public/screenshots/homepage-screenshot.jpeg)
+
+#### Destination page
+
+![Destination Design preview for space tourism website](./public/screenshots/destination-screenshot.png)
+
+#### Crew page
+
+![Crew Design preview for space tourism website](./public/screenshots/crew-screenshot.png)
+
+#### Technology page
+
+![Technology Design preview for space tourism website](./public/screenshots/tech-screenshot.png)
 
 ### Links
 
 - Solution URL: [solution URL](https://github.com/halelite/space-tourism-website.git)
-- Live Site URL: [live site URL](https://your-live-site-url.com)
+- Live Site URL: [live site URL](https://space-tourism-website-nine-lake.vercel.app/)
 
 ## My process
 
