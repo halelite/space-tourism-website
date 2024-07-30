@@ -20,12 +20,7 @@ const barlow = Barlow({
 function Technology({data}) {
 
     const [spaceport, setSpaceport] = useState(data.name == 'Spaceport');
-    // const [spaceport, setSpaceport] = useState()
     const [spaceCapsule, setSpaceCapsule] = useState(data.name == 'Space capsule');
-    // const [spaceCapsule, setSpaceCapsule] = useState()
-
-    // const dev = process.env.NODE_ENV !== 'production';
-    // const server = dev ? process.env.NEXT_PUBLIC_BASE_URL : 'https://space-tourism-website-nqha.vercel.app/'
 
     return (
         <div className="tech-container">
@@ -75,9 +70,6 @@ export async function getStaticProps({params}) {
 
     let name = params.slug.replace("_", ' ');
     name = name[0].toUpperCase() + name.slice(1);
-
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}assets/data.json`);
-    // const data = await res.json();
 
     const items = data.technology.find(item => item.name == name);
 

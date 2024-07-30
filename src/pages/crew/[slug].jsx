@@ -20,7 +20,6 @@ const barlow = Barlow({
 function Crew({data}) {
     
     const [isAnoushe, setAnoushe] = useState(data.name == 'Anousheh Ansari');
-    // const [isAnoushe, setAnoushe] = useState();
 
     return (
         <div className="crew-container">
@@ -39,7 +38,7 @@ function Crew({data}) {
                                 </div>
                                 <div className="description">
                                     <p className={barlow.className}>{data.bio}</p>
-                                    <p className={barlow.className}>ehem</p>
+                                    <p className={barlow.className}>{data.bio}</p>
                                 </div>
                             </div>
                             <CrewLinks /> 
@@ -64,9 +63,6 @@ export async function getStaticPaths() {
     //         {params: {slug: 'anousheh-ansari'}}
     //     ],
 
-    // const res = await fetch(`http://localhost:3000/assets/data.json`);
-    // const data = await res.json();
-
     const paths = data.crew.map(item => {
         let words = item.name.split(" ");
         for(let i = 0; i < words.length; i++) {
@@ -84,9 +80,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-
-    // const res = await fetch(`http://localhost:3000/assets/data.json`);
-    // const data = await res.json();
 
     let name = params.slug.split("_");
     for(let i = 0; i < name.length; i++) {
