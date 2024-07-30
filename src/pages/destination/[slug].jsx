@@ -2,6 +2,7 @@ import Nav from "../../../components/Nav"
 import {Bellefair} from 'next/font/google';
 import {Barlow} from 'next/font/google';
 import DestinationMenu from "../../../components/DestinationMenu";
+import data from '@public/assets/data.json';
 
 const bellefair = Bellefair({
   subsets: ['latin'],
@@ -63,8 +64,8 @@ export async function getStaticPaths() {
     //         {params: {slug: 'titna'}}
     //     ],
 
-    const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
-    const data = await res.json();
+    // const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
+    // const data = await res.json();
 
     const paths = data.destinations.map(item => ({
         params: {slug: item.name[0].toLowerCase() + item.name.slice(1)}
@@ -80,8 +81,8 @@ export async function getStaticProps({params}) {
 
     const name = params.slug[0].toUpperCase() + params.slug.slice(1);
 
-    const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
-    const data = await res.json();
+    // const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
+    // const data = await res.json();
 
     const items = data.destinations.find(item => item.name == name);
 
