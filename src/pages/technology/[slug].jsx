@@ -75,7 +75,7 @@ export async function getStaticProps({params}) {
     let name = params.slug.replace("_", ' ');
     name = name[0].toUpperCase() + name.slice(1);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}assets/data.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/assets/data.json`);
     const data = await res.json();
 
     const items = data.technology.find(item => item.name == name);
