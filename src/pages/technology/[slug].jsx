@@ -32,7 +32,7 @@ function Technology({data}) {
             <main>
                 <div className="container">
                     <h4><span>03</span>SPACE LAUNCH 101</h4>
-                    <div className="content">
+                    {/* <div className="content">
                         <div className={`${spaceport ? 'spaceport' : ''} ${spaceCapsule ? 'space-capsule' : ''} image`}>
                             <div className='mask'>
                                 <div className="img-wrapper">
@@ -51,46 +51,46 @@ function Technology({data}) {
                                 <p className={barlow.className}>{data.description}</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </main>
         </div>
     )
 }
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
 
-    return {
-        paths: [
-            {params: {slug: 'launch_vehicle'}},
-            {params: {slug: 'spaceport'}},
-            {params: {slug: 'space_capsule'}}
-        ],
-        fallback: false
-    }
-}
+//     return {
+//         paths: [
+//             {params: {slug: 'launch_vehicle'}},
+//             {params: {slug: 'spaceport'}},
+//             {params: {slug: 'space_capsule'}}
+//         ],
+//         fallback: false
+//     }
+// }
 
-export async function getStaticProps({params}) {
+// export async function getStaticProps({params}) {
 
-    let name = params.slug.replace("_", ' ');
-    name = name[0].toUpperCase() + name.slice(1);
+//     let name = params.slug.replace("_", ' ');
+//     name = name[0].toUpperCase() + name.slice(1);
 
-    const res = await fetch(`/assets/data.json`);
-    const data = await res.json();
+//     const res = await fetch(`https://space-tourism-website-nine-lake.vercel.app/assets/data.json`);
+//     const data = await res.json();
 
-    const items = data.technology.find(item => item.name == name);
+//     const items = data.technology.find(item => item.name == name);
 
-    if(!data) {
-        return {
-            notFound: true
-        }
-    }
+//     if(!data) {
+//         return {
+//             notFound: true
+//         }
+//     }
 
-    return {
-        props: {
-            data: items 
-        }
-    }
-}
+//     return {
+//         props: {
+//             data: items 
+//         }
+//     }
+// }
 
 export default Technology
