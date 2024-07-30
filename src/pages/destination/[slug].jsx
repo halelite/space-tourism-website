@@ -24,26 +24,26 @@ function Destination({data}) {
                     <h4><span>01</span>PICK YOUR DESTINATION</h4>
                     <div className="content">
                         <div className="image">
-                            {/* <img src={data.images.png}
+                            <img src={data.images.png}
                         width={150}
                         height={150}
-                        alt="moon" /> */}
+                        alt="moon" />
                         </div>
                         <div className="explanation">
                             <DestinationMenu />
                             <div className="text">
-                                {/* <h2 className={bellefair.className}>{data.name}</h2> */}
-                                {/* <p className={barlow.className}>{data.description}</p> */}
+                                <h2 className={bellefair.className}>{data.name}</h2>
+                                <p className={barlow.className}>{data.description}</p>
                             </div>
                             <div className="line"></div>
                             <div className="statistics">
                                 <div className="distance">
                                     <h5>AVG. DISTANCE</h5>
-                                    {/* <h4 className={bellefair.className}>{data.distance}</h4> */}
+                                    <h4 className={bellefair.className}>{data.distance}</h4>
                                 </div>
                                 <div className="travel-time">
                                     <h5>Est. travel time</h5>
-                                    {/* <h4 className={bellefair.className}>{data.travel}</h4> */}
+                                    <h4 className={bellefair.className}>{data.travel}</h4>
                                 </div>
                             </div>
                         </div>
@@ -54,49 +54,48 @@ function Destination({data}) {
     )
 }
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
-//     // paths: [
-//     //         {params: {slug: 'moon'}},
-//     //         {params: {slug: 'mars'}},
-//     //         {params: {slug: 'europa'}},
-//     //         {params: {slug: 'titna'}}
-//     //     ],
+    // paths: [
+    //         {params: {slug: 'moon'}},
+    //         {params: {slug: 'mars'}},
+    //         {params: {slug: 'europa'}},
+    //         {params: {slug: 'titna'}}
+    //     ],
 
-//     const res = await fetch(`http://localhost:3000/assets/data.json`);
-//     const data = await res.json();
+    const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
+    const data = await res.json();
 
-//     const paths = data.destinations.map(item => ({
-//         params: {slug: item.name[0].toLowerCase() + item.name.slice(1)}
-//     }));
+    const paths = data.destinations.map(item => ({
+        params: {slug: item.name[0].toLowerCase() + item.name.slice(1)}
+    }));
 
-//     return {
-//         paths,
-//         fallback: false
-//     }
-// }
+    return {
+        paths,
+        fallback: false
+    }
+}
 
-// export async function getStaticProps({params}) {
-//     // NEXT_PUBLIC_BASE_URL
+export async function getStaticProps({params}) {
 
-//     const name = params.slug[0].toUpperCase() + params.slug.slice(1);
+    const name = params.slug[0].toUpperCase() + params.slug.slice(1);
 
-//     const res = await fetch(`http://localhost:3000/assets/data.json`);
-//     const data = await res.json();
+    const res = await fetch(`${NEXT_PUBLIC_BASE_URL}assets/data.json`);
+    const data = await res.json();
 
-//     const items = data.destinations.find(item => item.name == name);
+    const items = data.destinations.find(item => item.name == name);
 
-//     if(!data) {
-//         return {
-//             notFound: true
-//         }
-//     }
+    if(!data) {
+        return {
+            notFound: true
+        }
+    }
 
-//     return {
-//         props: {
-//             data: items
-//         }
-//     }
-// }
+    return {
+        props: {
+            data: items
+        }
+    }
+}
 
 export default Destination
