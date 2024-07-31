@@ -32,12 +32,9 @@ function Crew({data}) {
                             <div className="info">
                                 <div className="name">
                                     <h5 className={bellefair.className}>{data.role}</h5>
-                                    <h5 className={bellefair.className}>commander</h5>
                                     <h1 className={bellefair.className}>{data.name}</h1>
-                                    <h1 className={bellefair.className}>douglas</h1>
                                 </div>
                                 <div className="description">
-                                    <p className={barlow.className}>{data.bio}</p>
                                     <p className={barlow.className}>{data.bio}</p>
                                 </div>
                             </div>
